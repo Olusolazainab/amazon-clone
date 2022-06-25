@@ -19,10 +19,10 @@ const firebaseConfig = {
 	measurementId: 'G-0XEEHVK5N7',
 };
 
-initializeApp(firebaseConfig);
+ export const init = initializeApp(firebaseConfig);
 
-  const db = getFirestore();
- const auth = getAuth();
+  export const db = getFirestore();
+  const auth = getAuth();
 
 
 
@@ -58,7 +58,7 @@ const Login = () => {
 			<Link to='/'>
 				<img
 					className='login-logo'
-					src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
+					src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png'
 					alt='logo'
 				/>
 			</Link>
@@ -81,7 +81,7 @@ const Login = () => {
 					/>
 
 					<button type='submit' onClick={signIn} className='login-signInButton'>
-						Sign In
+						Sign In 
 					</button>
 				</form>
 				<p>

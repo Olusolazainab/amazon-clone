@@ -30,12 +30,25 @@ margin-bottom: 15px;
     margin-top: 10px;
     border-color: #A88734 #9C7E31 #846A29;
     color: #111;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
+.product > button:hover{
+    background: #9C7E31;
+    color: #fff;
+    transform: scale(110%);
+    transition: 1s ease-in-out;
+}
 .product-price{
     margin-top: 5px;
 }
 .product-info{
 height: 100px;
 margin-bottom: 15px;
+}
+
+.arrow-button{
+    color: #000;
+    cursor: pointer;
 }

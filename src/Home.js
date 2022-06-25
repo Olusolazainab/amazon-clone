@@ -1,16 +1,35 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
+import { Data } from './components/Data';
 import './Home.css';
 import Product from './Product';
+import { ArrowForwardIosOutlined, ArrowBackIosOutlined } from '@mui/icons-material';
 
-const Home = () => {
+
+const Home = ({slides}) => {
+	const [current, setCurrent] = useState(0)
+
+const length = slides.length
+
+
 	return (
+		<section>
 		<div className='home'>
 			<div className='home-container'>
-				<img
-					className='home-image'
-					src='https://m.media-amazon.com/images/I/61-8rBAD68L._SX3000_.jpg'
-					alt='pix'
-				/>
+			
+				<div>
+{Data.map((slide, index) => {
+	return(
+		<div>
+			{index === current &&  (
+				<img className='home-image' src={slide.image} alt='home-pix'/>
+			)}
+		</div>
+	)
+})}
+
+				</div>
+
 				<div className='home-row'>
 					<Product
 						id='1001'
@@ -24,6 +43,12 @@ const Home = () => {
 					title='Polar Grit X Pro - GPS Multisport Smartwatch - Military Durability, Sapphire Glass, Wrist-based Heart Rate, Long Battery Life, Navigation - Best for Outdoor Sports.'
 					 price={499}
 					 image='https://m.media-amazon.com/images/I/71QhaEXJE9L._AC_UY218_.jpg'
+					 rating={4} />
+					 <Product 
+					id='1002'
+					title='Headset Multisport Smartwatch - Military Durability, Sapphire Glass, Wrist-based Heart Rate, Long Battery Life, Navigation - Best for Outdoor Sports.'
+					 price={499}
+					 image='https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Karu/2021/June/Karu_Quad_Headset.jpg'
 					 rating={4} />
 				</div>
 				<div className='home-row'>
@@ -48,18 +73,40 @@ const Home = () => {
 					image='https://m.media-amazon.com/images/I/410eivKV4DL._AC_UL320_.jpg'
 					rating={4}
 					/>
+					<Product
+					id='1005'
+					title='X BOX with 3.5mm Headphone Plug - White'
+					price={52}
+					image='https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Karu/2021/June/Karu_LP_XBOX2.png'
+					rating={4}
+					/>
 				</div>
 				<div className='home-row'>
 					<Product 
 					id='1006'
-					title='Acer Chromebook 314, Intel Celeron N4000, 14" Full HD Display, 4GB LPDDR4, 64GB eMMC, Gigabit WiFi, Google Chrome, CB314-1H-C884'
-					price={260}
-					image='https://m.media-amazon.com/images/I/71Erq-PlhhL._AC_SL1500_.jpg'
+					title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
+					price={1094.98}
 					rating={4}
+					image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
+				  
+					/>
+					<Product 
+					id='1006'
+					title="Nintendo Switch with Neon Blue and Neon Red Joy‑Con"
+					price={298.98}
+					rating={4}
+					image="https://m.media-amazon.com/images/I/61-PblYntsL._AC_UY218_.jpg"
+				  
 					/>
 				</div>
 			</div>
 		</div>
+		<div className='arrow-button'>
+         <ArrowBackIosOutlined className='left-btn'  onClick={()=> setCurrent(current === length - 1 ? 0 : current +1 )} />
+    <ArrowForwardIosOutlined className='right-btn'  onClick={()=> setCurrent(current === 0 ? length - 1 : current -1 )} />
+   
+  </div>
+  </section>
 	);
 };
 
